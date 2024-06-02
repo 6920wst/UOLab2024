@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>维普毕业设计管理系统</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <style>
+        .first01Div{
+            margin-left: 150px;
+            margin-top: 50px;
+        }
+        .contentDiv{
+            background-color:#5B74EC ;
+            width: 100%;
+            height: 700px;
+        }
+        .loginDiv{
+            width: 450px;
+            height: 400px;
+            background-color: white;
+            position: absolute;
+            top:180px ;
+            left: 900px;
+        }
+        .school,#uname,#upsw{
+            height: 45px;
+            width: 360px;
+            border-radius: 5px;
+            margin-left: 38px;
+            margin-top: 10px;
+            border: 1px solid gray;
+            background-color: #F9F9FA;
+        }
+        #upsw,#uname{
+            background-color: #F9F9FA;
+            width: 340px;
+        }
+        i{
+            position: absolute;
+            top:140px ;
+            left: 45px;
+            color: gray;
+        }
+        #lock{
+            position: absolute;
+            top:200px ;
+            left: 45px;
+            color: gray;
+        }
+        button{
+            width: 380px;
+            height: 45px;
+            border-radius: 5px;
+            background-color: #507DED;
+            color: white;
+            font-size: 16px;
+            border: 1px solid #507DED;
+            margin-left: 38px;
+            margin-top: 10px;
+        }
+        .agree{
+            margin-left: 41px;
+            margin-top: 10px;
+            font-size: 14px;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+  <div class="first01Div">
+    <img src="imgs/first01.png" width="472px">
+  </div>
+  <div class="contentDiv">
+         <img src="imgs/logo2.png" width="1000px">
+  </div>
+  <div class="loginDiv" >
+    <h3 style="margin-left: 50px ;letter-spacing: 2px">账号登录</h3>
+      <hr color="#507DED" width="100px" style="margin-left: 40px;margin-top: -10px" >
+      <select class="school">
+          <option>中北大学</option>
+          <option>太原科技大学</option>
+          <option>暨南大学</option>
+          <option>东北大学</option>
+          <option>中南财经政法大学</option>
+      </select><br>
+    <i class="fa fa-user" ></i> <input type="text" id="uname" placeholder="用户名" style="padding-left:20px">
+      <br>
+    <i id="lock" class="fa fa-lock"></i>  <input type="password" id="upsw" placeholder="密码" style="padding-left: 20px">
+      <br>
+      <br>
+      <a href="" style="font-size: 14px;text-decoration: none;color: gray;margin-left: 360px;">忘记密码</a>
+      <br>
+      <button>登录</button>
+      <div class="agree">
+          <input type="checkbox">我已阅读并同意《维普毕业论文（设计）管理系统隐私政策》 《维普毕业论文（设计）管理系统使用协议》
+      </div>
+  </div>
+</body>
+</html>
