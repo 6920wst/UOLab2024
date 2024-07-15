@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Demo</title>
+    <!-- 请勿在项目正式环境中引用该 layui.css 地址 -->
+    <link href="../layui/css/layui.css" rel="stylesheet">
+</head>
+<body>
+<blockquote class="layui-elem-quote">
+    用户信息查询列表
+</blockquote>
+<table class="layui-hide" id="ID-table-demo-parse" lay-filter="demo"></table>
+<script type="text/html" id="barDemo">
+    <!--   <div class="layui-btn-container">-->
+    <!--       <button type="button" class="layui-btn layui-btn-xs">查看详情</button>-->
+    <!--       <button type="button" class="layui-btn layui-bg-blue layui-btn-xs">修改</button>-->
+    <!--       <button type="button" class="layui-btn layui-bg-red layui-btn-xs">删除</button>-->
+    <!--   </div>-->
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+<!-- 请勿在项目正式环境中引用该 layui.js 地址 -->
+<script src="../layui/layui.js"></script>
+<script>
+    layui.use('table', function () {
+        var table = layui.table;
+
+        // 渲染
+        table.render({
+            elem: '#ID-table-demo-parse',
+            url: './api/user.json',
+            page: true,
+            response: {
+                statusCode: 200 // 重新规定成功的状态码为 200，table 组件默认为 0
+            },
+            // 将原始数据解析成 table 组件所规定的数据格式
+            parseData: function (res) {
+                return {
+                    "code": res.status, //解析接口状态
+                    "msg": res.message, //解析提示文本
+                    "count": res.total, //解析数据长度
+                    "data": res.rows.item //解析数据列表
+                };
+            },
+            cols: [[
+                {field: 'id', title: 'ID', width: 80, fixed: 'left', unresize: true, sort: true, align: 'center'}, ,
+                {field: 'username', title: '用户名', width: 120, align: 'center'},
+                {field: 'email', title: '邮箱', width: 150, align: 'center'},
+                {field: 'experience', title: '积分', width: 100, sort: true, align: 'center'},
+                {field: 'sex', title: '性别', width: 80, sort: true, align: 'center'},
+                {field: 'sign', title: '签名', align: 'center'},
+                {field: 'joinTime', title: '加入时间', width: 120, align: 'center'},
+                {fixed: 'right', title: '操作', width: 220, minWidth: 125, align: 'center', toolbar: '#barDemo'}
+            ]],
+            height: 315
+        });
+        //监听工具条
+        table.on('tool(demo)', function (obj) {
+            var data = obj.data;
+            if (obj.event === 'detail') {
+                layer.msg('ID：' + data.id + ' 的查看操作');
+            } else if (obj.event === 'del') {
+                layer.confirm('真的删除行么', function (index) {
+                    obj.del();
+                    layer.close(index);
+                });
+            } else if (obj.event === 'edit') {
+                layer.alert('编辑行：<br>' + JSON.stringify(data))
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

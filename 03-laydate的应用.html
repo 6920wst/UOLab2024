@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>laydate的应用</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Demo</title>
+    <!-- 请勿在项目正式环境中引用该 layui.css 地址 -->
+    <link href="//../layui/css/layui.css" rel="stylesheet">
+</head>
+<body>
+<div class="layui-form">
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">出生日期</label>
+            <div class="layui-input-inline">
+                <input type="text" class="layui-input" id="birthday" placeholder="yyyy-MM-dd">
+            </div>
+        </div>
+        <div class="layui-inline">
+            <label class="layui-form-label">国际版</label>
+            <div class="layui-input-inline">
+                <input type="text" class="layui-input" id="ID-laydate-demo-en" placeholder="yyyy-MM-dd">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="layui-form-item">
+    <div class="layui-inline">
+        <label class="layui-form-label">年份</label>
+        <div class="layui-input-inline">
+            <input type="text" class="layui-input" id="year" placeholder="请输入年份">
+        </div>
+    </div>
+    <div class="layui-inline">
+        <label class="layui-form-label">具体时间</label>
+        <div class="layui-input-inline">
+            <input type="text" class="layui-input" id="dateTime" placeholder="yyyy-MM-dd HH:mm:ss">
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- 请勿在项目正式环境中引用该 layui.js 地址 -->
+<script src="../layui/layui.js"></script>
+<script>
+    layui.use(function(){
+        var laydate = layui.laydate;
+        // 渲染
+        laydate.render({
+            elem: 'birthday'
+        });
+        // 英文版
+        laydate.render({
+            elem: '#ID-laydate-demo-en',
+            lang: 'en'
+        });
+
+        //年选择器
+       laydate.render({
+           elem:'#year',
+           type:'year'
+       })
+        // 日期时间选择器
+        laydate.render({
+            elem:'#dateTime',
+            type:'dateTime'
+        })
+    });
+</script>
+
+</body>
+</html>
+</body>
+</html>

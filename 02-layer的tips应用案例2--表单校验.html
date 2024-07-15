@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>layer的tips应用案例2--表单校验</title>
+    <!--1.引入layui.css样式表-->
+    <link href="../layui/css/layui.css" rel="stylesheet">
+
+</head>
+<body>
+<form>
+    用户名:<input id="username" type="text" name="username">
+    密码:<input id="password" type="password" name="password">
+    <input type="button" value="登录"/>
+</form>
+<!-- 2. 引入layui.js库文件 -->
+<script src="../layui/layui.js"></script>
+<script type="text/javascript">
+    layui.use(function () {
+        var layer = layui.layer;
+        var $ = layui.jquery;
+        //用户名校验
+        var flag = false;
+        $("#username").blur(function () {
+            // 获取username的值
+            //alert("aaa")
+            var username = $("#username").val();
+            //alert(username)
+            var usernameReg = /^[a-zA-Z0-9_-]{4,16}$/;
+            flag = usernameReg.test(username);
+            // alert(flag)
+            if (username == null || username === '' || username.length === 0) {
+                //layer.msg('用户名不能为空',{icon: 2});
+                layer.tips('用户名不能为空', '#username', {
+                    tips: [2, 'red']
+                });
+                return;
+            }
+            // 用户名是否符合正则表达式，如果不符合，提示用户名格式不正确
+            if (!flag) {
+                layer.tips('用户名格式不正确', '#username', {
+                    tips: [2, 'red'],
+                    time: 3000
+                });
+            } else {
+                layer.tips('用户名格式正确', '#username', {
+                    tips: [2, 'green'],
+                    time: 3000
+                });
+            }
+        })
+
+        // 密码
+        var flag2 = false;
+        $("#password").blur(function () {
+            // 获取password的值
+            var password = $("#password").val();
+            // alert(password)
+            var reg = /^[a-zA-Z0-9]{6,16}$/;
+            flag2 = reg.test(password);
+            // alert(flag)
+            if (password == null || password === '' || password.length === 0) {
+                // layer.msg('密码不能为空', {icon: 2});
+                layer.tips('密码不能为空', '#password', {
+                    tips: [2, 'red']
+                });
+                return;
+            }
+            // 用户名是否符合正则表达式，如果不符合，提示用户名格式不正确
+            if (!flag2) {
+                layer.tips('密码格式不正确', '#password', {
+                    tips: [2, 'red'],
+                    time: 3000
+                });
+            } else {
+                layer.tips('密码格式正确', '#password', {
+                    tips: [2, 'green'],
+                    time: 3000
+                });
+            }
+        })
+
+        // 给表单施加点击事件
+        $("#formId").click(function () {
+            if (flag && flag2) {
+                $("#formId").submit();
+            }
+        })
+
+    })
+</script>
+</body>
+</html>
