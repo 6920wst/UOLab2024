@@ -1,0 +1,43 @@
+{
+  "code": 0,
+  "msg": "",
+  "count": 100,
+  "data": [
+    {
+      "kind": "科技创新类",
+      "grade": "2021",
+      "title": "123",
+      "leader": "张三",
+      "member": "李四，王五",
+      "level": "二等奖",
+      "teacher": "薛六"
+    },
+    {
+      "kind": "专业技能类",
+      "grade": "2020",
+      "title": "213",
+      "leader": "张三",
+      "member": "李四，王五",
+      "level": "一等奖",
+      "teacher": "薛六"
+    },
+    {
+      "kind": "新工科类",
+      "grade": "2022",
+      "title": "312",
+      "leader": "张三",
+      "member": "李四，王五",
+      "level": "优秀奖",
+      "teacher": "薛六"
+    },
+    {
+      "kind": "学科技能类",
+      "grade": "2023",
+      "title": "321",
+      "leader": "张三",
+      "member": "李四，王五",
+      "level": "特等奖",
+      "teacher": "薛六"
+    }
+  ]
+}
