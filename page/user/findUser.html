@@ -86,7 +86,8 @@
 
         <!--自定义模板转换用户状态-->
         <script type="text/html" id="status">
-            <input type="checkbox" value="{{d.status}}" name="open" lay-skin="switch" lay-filter="switchTest" lay-text="启用|禁用" {{d.status==1?'checked':''}}>
+            <input type="checkbox" value="{{d.status}}" name="open" lay-skin="switch"
+                   lay-filter="switchTest" lay-text="启用|禁用" {{d.status==1?'checked':''}}>
         </script>
 
         <script type="text/html" id="toolbarDemo">
